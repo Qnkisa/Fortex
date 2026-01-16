@@ -1,29 +1,120 @@
 @import "tailwindcss";
 
-/* Security Company Color Palette */
+/* Modern Security Design System */
 :root {
+  /* Colors */
   --background: #ffffff;
-  --foreground: #2E2E2E;
+  --background-secondary: #fafbfc;
+  --foreground: #1a202c;
+  --foreground-muted: #4a5568;
+
+  /* Primary Palette - Deep Navy with gradient support */
   --primary: #0A2540;
-  --secondary: #2E2E2E;
+  --primary-hover: #0d2f52;
+  --primary-light: #1a3a5e;
+  --primary-gradient: linear-gradient(135deg, #0A2540 0%, #1a4870 100%);
+
+  /* Accent Colors */
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(10, 37, 64, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(10, 37, 64, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(10, 37, 64, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(10, 37, 64, 0.15);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Typography Enhancements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Utility Classes for Modern Effects */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.2);
+  }
+
+  to {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
 }
